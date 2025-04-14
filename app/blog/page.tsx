@@ -45,6 +45,9 @@ export default async function BlogPage() {
 
   return (
     <main className="container mx-auto px-6 py-12 max-w-5xl">
+            <Link href="/" className="text-blue-600 hover:underline inline-flex items-center mb-4">
+        <span className="mr-1">←</span> Back Home
+      </Link>
       <h1 className="text-4xl font-bold mb-10 text-center">Blog</h1>
       
       {posts.length === 0 ? (
@@ -52,7 +55,13 @@ export default async function BlogPage() {
       ) : (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post: Post) => {
-            const imageUrl = post.mainImage ? urlFor(post.mainImage).width(800).height(450).url() : null;
+            let imageUrl = null;
+            try {
+              imageUrl = post.mainImage ? urlFor(post.mainImage).width(800).height(450).url() : null;
+            } catch (error) {
+              console.error(`Error generating image URL for post "${post.title}":`, error);
+              // Continue with null imageUrl
+            }
             
             // Format the date
             const publishedDate = post.publishedAt 
