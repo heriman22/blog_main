@@ -1,14 +1,8 @@
 import Image from 'next/image';
 import { PortableTextReactComponents } from '@portabletext/react';
-import React, { memo, lazy, Suspense } from 'react';
+import React, { memo, Suspense } from 'react';
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
-// Use lazy loading only for the syntax highlighter component
-const SyntaxHighlighter = lazy(() => 
-  import('react-syntax-highlighter').then(mod => ({ 
-    default: mod.Prism 
-  }))
-);
+import { Prism as SyntaxHighlighterPrism } from 'react-syntax-highlighter';
 
 // Define proper types instead of any
 interface MemoizedImageProps {
@@ -51,7 +45,7 @@ interface CodeBlockProps {
 const CodeBlock = memo(({ language, code, filename }: CodeBlockProps) => (
   <Suspense fallback={<div className="bg-gray-900 text-gray-100 p-5 rounded-lg animate-pulse h-32" />}>
     <div className="my-6 rounded-lg overflow-hidden">
-      <SyntaxHighlighter
+      <SyntaxHighlighterPrism
         language={language || 'typescript'}
         style={atomDark}
         className="text-sm"
@@ -62,7 +56,7 @@ const CodeBlock = memo(({ language, code, filename }: CodeBlockProps) => (
         }}
       >
         {code}
-      </SyntaxHighlighter>
+      </SyntaxHighlighterPrism>
       {filename && (
         <div className="text-xs text-gray-500 mt-1 px-1">
           {filename}
