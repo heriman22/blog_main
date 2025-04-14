@@ -24,8 +24,8 @@ export default function Home() {
         <section className="space-y-6">
           <h2 className="text-2xl sm:text-1xl font-semibold">About Me</h2>
           <p className="text-base sm:text-base md:text-xl text-gray-700 dark:text-gray-300">
-            Write about your journey, skills, and passions. Example: "I build fast, accessible web apps
-            using Next.js, React, and Tailwind CSS. This blog shares my learnings, experiments, and thoughts."
+            Write about your journey, skills, and passions. Example: &ldquo;I build fast, accessible web apps
+            using Next.js, React, and Tailwind CSS. This blog shares my learnings, experiments, and thoughts.&rdquo;
           </p>
         </section>
 

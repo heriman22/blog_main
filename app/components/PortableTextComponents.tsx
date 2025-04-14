@@ -10,8 +10,18 @@ const SyntaxHighlighter = lazy(() =>
   }))
 );
 
+// Define proper types instead of any
+interface MemoizedImageProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  className?: string;
+  caption?: string;
+}
+
 // Memoize components for better performance
-const MemoizedImage = memo(({ src, alt, width, height, className, caption }: any) => (
+const MemoizedImage = memo(({ src, alt, width, height, className, caption }: MemoizedImageProps) => (
   <figure className="my-8">
     <Image
       src={src || ''}
@@ -30,8 +40,15 @@ const MemoizedImage = memo(({ src, alt, width, height, className, caption }: any
 
 MemoizedImage.displayName = 'MemoizedImage';
 
+// Define proper type for code block
+interface CodeBlockProps {
+  language?: string;
+  code: string;
+  filename?: string;
+}
+
 // Create code block component with loading state
-const CodeBlock = memo(({ language, code, filename }: any) => (
+const CodeBlock = memo(({ language, code, filename }: CodeBlockProps) => (
   <Suspense fallback={<div className="bg-gray-900 text-gray-100 p-5 rounded-lg animate-pulse h-32" />}>
     <div className="my-6 rounded-lg overflow-hidden">
       <SyntaxHighlighter

@@ -9,11 +9,6 @@ import { Suspense } from "react";
 import { PortableTextComponents } from "../../components/PortableTextComponents";
 import { cache } from 'react';
 
-interface PostPageProps {
-    height: number,
-    width: number
-  }
-
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 const ALL_POSTS_QUERY = `*[_type == "post" && defined(slug.current)].slug.current`;
 
