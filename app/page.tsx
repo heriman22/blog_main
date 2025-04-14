@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="mt-16 text-center text-sm sm:text-base text-gray-500 dark:text-gray-400">
-        © {new Date().getFullYear()} Your Name. All rights reserved.
+        © {new Date().getFullYear()} Heritier. All rights reserved.
       </footer>
     </div>
   );
