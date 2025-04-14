@@ -34,10 +34,10 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for the page
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  // Await params before using properties
-  const slug = await params.slug;
-  const decodedSlug = decodeURIComponent(slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  // Await the entire params object
+  const resolvedParams = await params;
+  const decodedSlug = decodeURIComponent(resolvedParams.slug);
   const post = await getPost(decodedSlug);
   
   if (!post) return { title: 'Post Not Found' };
@@ -72,11 +72,11 @@ const PostContent = ({ post }: { post: SanityDocument }) => {
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  // Await params before using properties
-  const slug = await params.slug;
-  const decodedSlug = decodeURIComponent(slug);
+  // Await the entire params object
+  const resolvedParams = await params;
+  const decodedSlug = decodeURIComponent(resolvedParams.slug);
   const post = await getPost(decodedSlug);
   
   if (!post) {
