@@ -1,102 +1,49 @@
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-4 sm:p-1.2 font-[family-name:var(--font-geist-sans)] bg-white dark:bg-black text-black dark:text-white">
+      {/* Header */}
+      <header className="text-center space-y-4">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          className="centered-image rounded-full border-4 border-black/10 dark:border-white/20"
+          src="/your-avatar.jpg" // Replace with your avatar
+          alt="Your Name"
+          width={100}
+          height={100}
           priority
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <h1 className="text-3xl sm:text-1xl md:text-3xl font-bold">Heritier</h1>
+        <p className="text-base sm:text-base md:text-xl max-w-2xl text-gray-600 dark:text-gray-400 mx-auto">
+          A short intro about you. Web developer, writer, and lifelong learner.
+        </p>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* Main Content */}
+      <main className="mt-10 text-center max-w-3xl w-full px-2">
+        <section className="space-y-6">
+          <h2 className="text-2xl sm:text-1xl font-semibold">About Me</h2>
+          <p className="text-base sm:text-base md:text-xl text-gray-700 dark:text-gray-300">
+            Write about your journey, skills, and passions. Example: "I build fast, accessible web apps
+            using Next.js, React, and Tailwind CSS. This blog shares my learnings, experiments, and thoughts."
+          </p>
+        </section>
+
+        <section className="mt-12 space-y-6">
+          <h2 className="text-2xl sm:text-1xl font-semibold">Contact & Links</h2>
+          <div className="flex gap-6 justify-center flex-wrap text-base sm:text-lg">
+            <a href="mailto:herri2293@gmail.com" className="hover:underline text-blue-600 dark:text-blue-400">Email</a>
+            <a href="https://github.com/heriman22" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-600 dark:text-blue-400">GitHub</a>
+            <a href="https://www.linkedin.com/in/heri-b-61502423b/" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-600 dark:text-blue-400">LinkedIn</a>
+            <a href="https://huggingface.co/Heriman" target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-600 dark:text-blue-400">huggingface</a>
+             <Link href="/blog" className="hover:underline text-blue-600 dark:text-blue-400">Blog</Link>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="mt-16 text-center text-sm sm:text-base text-gray-500 dark:text-gray-400">
+        © {new Date().getFullYear()} Your Name. All rights reserved.
       </footer>
     </div>
   );
