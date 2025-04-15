@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
     // The _type in Sanity indicates what kind of document was changed
     const { _type } = body;
     
-    let pathsToRevalidate = ['/'];
+    const pathsToRevalidate: string[] = ['/'];
     
     // If it's a post, also revalidate the blog pages
     if (_type === 'post') {
