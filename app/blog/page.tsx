@@ -45,7 +45,7 @@ export default async function BlogPage() {
 
   return (
     <main className="container mx-auto px-6 py-12 max-w-5xl">
-            <Link href="/" className="text-blue-600 hover:underline inline-flex items-center mb-4">
+      <Link href="/" className="text-blue-600 hover:underline inline-flex items-center mb-4">
         <span className="mr-1">←</span> Back Home
       </Link>
       <h1 className="text-4xl font-bold mb-10 text-center">Blog</h1>
